@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "tsc -p ."
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint"
+    },
+    {
+      "type": "npm",
+      "script": "tests",
+      "group": "test",
+      "options": {
+        "env": {
+          "TP_DEV_TOKEN": "DUMMY"
+        }
+      },
+      "problemMatcher": [],
+      "label": "npm: test",
+      "dependsOn": "npm: build"
+    }
+  ]
+}
